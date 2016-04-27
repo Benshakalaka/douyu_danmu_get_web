@@ -118,13 +118,6 @@ class MS(WSSocket):
 
         #Decode the masked original data
         l = len(oriData) ;
-        #可以看这篇，了解下面使用到的bytearray     http://www.cnblogs.com/zdz8207/p/python_learn_note_4.html
-        #之所以传入的msg不能立即解码，是因为本身数据是以utf-8的形式进行掩码处理后传过来的，那么在进行反掩码处理时候就必然要按照之前的编码形式
-        #也就是说我们要在utf-8情况下进行反掩码处理，处理完成后依然是utf-8编码的
-        #经过很多尝试搜索后，我才找到bytearray，如果使用普通的数组或字符串来接收反掩码处理的结果，最终都会变成unicode形式
-        #oriData[i]直接就变成数字了，oriData[i] ^ maskKey[i % 4]直接就是整型结果，得到结果后我怎么把str转成bytes呢？当然你可能说用encode，但如果经过解码后得到‘\xe5\x93\x88’的话，我想要得到bytes的值是 b‘\xe5\x93\x88’，而encode并不是做这种变化的函数
-        #所以我只能用bytearray，得到想要的结果
-        #说白了，就是想要进行utf-8编码的运算，但在python3的unicode环境下作不了，只能使用bytearray
         decodeData = bytearray(l)
         for i in range(l):
             decodeData[i] = oriData[i] ^ maskKey[i % 4]
