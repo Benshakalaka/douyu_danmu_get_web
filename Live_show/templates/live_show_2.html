@@ -1,0 +1,76 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Select</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/live_show.css' %}">
+</head>
+<body>
+    <div class="container whole-page">
+        {% for paltform_name,platform_info in live_list.items %}
+            <div class="single-live-platform">
+                <div class="paltform-desc">
+                    <img src="{{ platform_info.platform_src }}" style="margin: 40px 0 20px 0;">
+                    <label id="{{ platform_info.platform_name }}"></label>
+                </div>
+                <div class="row all-live-show">
+                    {% for single_live in platform_info.players %}
+                        <figure class="col-md-3 shadow-hove">
+                            <img src="{{ single_live.img_url }}">
+                            <div class="cover-pic"></div>
+                            <figcaption>
+                                {% load stringCut %}
+                                <label class="lable1" id="live-title">{{ single_live.title  | stringCut}}</label>
+                                <label class="lable2" id="live-tag">{{ single_live.tag }}</label>
+                                <div style="clear: both"></div>
+                                <label class="lable3" id="live-host">{{ single_live.auth }}</label>
+                                <label class="lable4" id="live-people">{{ single_live.audience }}</label>
+                                {% if paltform_name == 'douyu' %}
+                                    <a href="{{ single_live.href }}" target="_blank">
+                                        <div class="play-button-circle"></div>
+                                        <div class="play-button-arrow"></div>
+                                    </a>
+                                    <a href="#" class="danmuOpenBtn" data-toggle="modal" data-target="#danmuModal">
+                                        <div class="danmu-button-box"><p>弹幕</p></div>
+                                    </a>
+                                {% else %}
+                                    <a href="{{ single_live.href }}" target="_blank">
+                                        <div class="play-button-circle-only"></div>
+                                        <div class="play-button-arrow-only"></div>
+                                    </a>
+                                {% endif %}
+                            </figcaption>
+                        </figure>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="modal fade" id="danmuModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" style="width: 600px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 id="danmu-title"></h3>
+                </div>
+                <div class="modal-body modal-content-limit" id="content-body">
+{#                    <div class="single-message">#}
+{#                        <label>的洒家扩大：</label><p>多久啊啥的啊就是大家阿斯顿阿德撒 撒旦哈萨克华盛顿号啊</p>#}
+{#                    </div>#}
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="resetBtn">Clear</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script src="{% static 'js/show_live.js' %}"></script>
+</body>
+</html>

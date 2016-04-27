@@ -1,0 +1,218 @@
+        body{
+            background-color: #F4F4F4;
+        }
+
+        .shadow-hove:hover{
+            -moz-box-shadow: 3px 3px 10px #333333;
+            -webkit-box-shadow:3px 3px 10px #333333;
+            box-shadow:3px 3px 10px #333333;
+        }
+        /*.whole-page{*/
+            /*margin-top: 100px;*/
+        /*}*/
+
+        .all-live-show figure{
+            background-color: #FFFFFF;
+            width: 23%;
+            padding: 0px;
+            margin: 10px 10px;
+            position: relative;
+        }
+
+        .all-live-show figure img{
+            margin: 0;
+            /*width : 100%;
+            height: 100%;*/
+           width: 100%;
+           height: 160px;
+        }
+
+        .all-live-show figure .cover-pic{
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	height: 160px;
+        	width: 100%;
+        	background-color: #000;
+        	opacity: 0;
+        }
+
+        figure:hover .cover-pic{
+        	opacity: 0.5;
+        }
+
+        .all-live-show figure figcaption{
+            margin: 0 3%;
+        }
+
+        .all-live-show figure figcaption .lable1{
+            float: left;
+        }
+
+        .all-live-show figure figcaption .lable2{
+            float: right;
+        }
+
+        .all-live-show figure figcaption .lable3{
+            float: left;
+        }
+
+        .all-live-show figure figcaption .lable4{
+            float: right;
+        }
+
+        figure:hover img{
+            opacity: 0.6;
+        }
+
+        .play-button-circle{
+            position: absolute;
+            left: 40px;
+            top: 55px;
+            transform: translate(0, 30px);
+            opacity: 0;
+            height: 55px;
+            width: 55px;
+            border: 4px solid #CFCFCF;
+            border-radius: 50%;
+            transition: all 1s ease-out;
+        }
+
+        .play-button-circle a{
+            display: block;
+        }
+
+        .play-button-arrow{
+            position: absolute;
+            width: 0px;
+            height:0px;
+            border-width: 15px;
+            border-style: solid;
+            border-color: transparent transparent transparent #CFCFCF;
+            left: 62px;
+            top: 68px;
+            transform: translate(0, 30px);
+            opacity: 0;
+            transition: all 1s ease-out;
+        }
+
+        .play-button-circle-only{
+            position: absolute;
+            left: 90px;
+            top: 45px;
+            transform: scale(2,2);
+            opacity: 0;
+            height: 90px;
+            width: 90px;
+            border: 5px solid #CFCFCF;
+            border-radius: 50%;
+            transition: all 500ms ease-out;
+        }
+
+        .play-button-circle-only a{
+            display: block;
+        }
+
+        .play-button-arrow-only{
+            position: absolute;
+            width: 0px;
+            height:0px;
+            border-width: 30px;
+            border-style: solid;
+            border-color: transparent transparent transparent #CFCFCF;
+            left: 124px;
+            top: 60px;
+            transform: scale(2,2);
+            opacity: 0;
+            transition: all 500ms ease-out;
+        }
+
+        .danmu-button-box{
+            position: absolute;
+            height: 50px;
+            width: 65px;
+            border-radius: 15px;
+            top:58px;
+            left: 140px;
+            opacity: 0;
+            transition: all 1s ease-out;
+            transform: translate(0, 30px);
+            border: 4px solid #CFCFCF;
+        }
+
+        .danmu-button-box p{
+            color: #CFCFCF;
+            font-weight: bold;
+            font-size : 18px;
+            font-family: 幼圆;
+            width: 100%;
+            text-align: center;
+            margin-top: 9px;
+            transition: all 1s ease-out;
+        }
+
+        figure:hover figcaption a .play-button-circle{
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+
+        figure:hover figcaption a .play-button-arrow{
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+
+        figure:hover figcaption a .play-button-circle-only{
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+
+        figure:hover figcaption a .play-button-arrow-only{
+            transform: scale(1, 1);
+            opacity: 1;
+        }
+
+        figure:hover figcaption a .danmu-button-box{
+            transform: translate(0, 0);
+            opacity: 1;
+        }
+
+        .all-live-show figure figcaption a:hover .play-button-circle{
+            border-color: #fff;
+        }
+
+        .all-live-show figure figcaption a:hover .play-button-arrow{
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .all-live-show figure figcaption a:hover .play-button-circle-only{
+            border-color: #fff;
+        }
+
+        .all-live-show figure figcaption a:hover .play-button-arrow-only{
+            border-color: transparent transparent transparent #fff;
+        }
+
+        .all-live-show figure figcaption a:hover .danmu-button-box{
+            border-color: #fff;
+        }
+
+        .all-live-show figure figcaption a:hover .danmu-button-box p{
+            color: #fff;
+        }
+
+        .single-message label{
+        	margin: 8px auto 0 auto;
+        	padding: 0 0;
+        }
+
+        .single-message p{
+        	margin: 0 0;
+        	padding: 0 0;
+        	word-wrap: break-word;
+    		word-break: normal;
+        }
+
+        .modal-content-limit{
+        	height: 300px;
+        	overflow-y: auto;
+        }
